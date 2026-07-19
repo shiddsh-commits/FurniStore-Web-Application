@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Furniture Shop</title>
+    <!-- Page-specific styles for the furniture landing page. -->
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Main header with brand, search, theme control, and page navigation. -->
+    <header class="site-header">
+      <div class="brand">Furniture Shop</div>
+      <div class="header-actions">
+        <form id="search-form" class="search-wrap">
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search furniture..."
+          />
+          <button type="submit" class="btn btn-secondary">Search</button>
+        </form>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+          🌙
+        </button>
+        <nav class="site-nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="../AddToCart/AddToCart.html" class="nav-link"
+            >Cart <span id="cart-count">0</span></a
+          >
+          <a href="../Wishlist/Wishlist.html" class="nav-link"
+            >Wishlist <span id="wishlist-count">0</span></a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section introduces the store and provides a quick jump to the catalog. -->
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">New arrivals</span>
+          <h1>Simple furniture shopping</h1>
+          <p>
+            Browse quality furniture products, compare prices, and save
+            favorites to cart or wishlist.
+          </p>
+          <a href="#products" class="btn btn-primary">Shop furniture</a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=1000&q=80"
+            alt="Furniture showroom"
+          />
+        </div>
+      </section>
+
+      <!-- Main catalog area; product cards and pagination are injected by JavaScript. -->
+      <section id="products" class="products-section">
+        <div class="section-title">
+          <h2>Featured furniture</h2>
+          <p>
+            Clean, responsive product cards rendered from your furniture data.
+          </p>
+        </div>
+        <div id="product-grid" class="product-grid"></div>
+        <div id="pagination" class="pagination"></div>
+      </section>
+
+      <!-- First carousel highlights a curated set of trending products. -->
+      <section class="carousel-section">
+        <div class="section-title">
+          <h2>Trending Now</h2>
+          <p>Popular furniture picks</p>
+        </div>
+        <div class="carousel-container">
+          <button class="carousel-btn carousel-prev" id="carousel1-prev">
+            ❮
+          </button>
+          <div class="carousel-wrapper">
+            <div id="carousel-1" class="carousel-track"></div>
+          </div>
+          <button class="carousel-btn carousel-next" id="carousel1-next">
+            ❯
+          </button>
+        </div>
+      </section>
+
+      <!-- Second carousel showcases another slice of the same dataset in a different order. -->
+      <section class="carousel-section">
+        <div class="section-title">
+          <h2>Best Sellers</h2>
+          <p>Top rated furniture items</p>
+        </div>
+        <div class="carousel-container">
+          <button class="carousel-btn carousel-prev" id="carousel2-prev">
+            ❮
+          </button>
+          <div class="carousel-wrapper">
+            <div id="carousel-2" class="carousel-track"></div>
+          </div>
+          <button class="carousel-btn carousel-next" id="carousel2-next">
+            ❯
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Toast is reused for lightweight action feedback such as cart or wishlist saves. -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Landing page script loads data, renders products, and wires up interactions. -->
+    <script src="index.js"></script>
+  </body>
+</html>

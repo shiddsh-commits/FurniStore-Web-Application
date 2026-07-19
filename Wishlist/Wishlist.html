@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist - Furniture Shop</title>
+    <!-- Wishlist page-specific styles. -->
+    <link rel="stylesheet" href="Wishlist.css" />
+  </head>
+  <body>
+    <!-- Compact header for returning to the catalog and switching themes. -->
+    <header class="page-header">
+      <div class="header-top">
+        <a href="../LandingPage/index.html" class="back-link">← Back to shop</a>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+          🌙
+        </button>
+      </div>
+      <h1>Your Wishlist</h1>
+    </header>
+
+    <!-- Wishlist content is rendered dynamically from browser storage. -->
+    <main class="cart-page">
+      <div class="cart-top">
+        <p id="wishlist-summary">Loading wishlist…</p>
+      </div>
+      <div id="wishlist-list" class="cart-list"></div>
+    </main>
+
+    <!-- Wishlist script reads saved products and builds the page layout. -->
+    <script src="Wishlist.js"></script>
+  </body>
+</html>

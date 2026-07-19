@@ -1,0 +1,639 @@
+/* Global color tokens used by the landing page in light mode. */
+:root {
+  color-scheme: light;
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-contrast: #ffffff;
+  --secondary-bg: #f3f4f6;
+  --shadow: rgba(15, 23, 42, 0.08);
+}
+
+/* Override the shared color tokens when dark mode is active. */
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #2d2d2d;
+  --surface: #3d3d3d;
+  --surface-muted: #4a4a4a;
+  --text: #e8e8e8;
+  --muted: #b0b0b0;
+  --border: #555555;
+  --primary: #3b82f6;
+  --primary-contrast: #ffffff;
+  --secondary-bg: #4a4a4a;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Keep sizing predictable across layout calculations. */
+* {
+  box-sizing: border-box;
+}
+
+/* Establish the main page typography and background theme. */
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Form controls inherit the page font for visual consistency. */
+button,
+input {
+  font: inherit;
+}
+
+/* Sticky header keeps navigation visible while scrolling the catalog. */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Simple wordmark treatment for the furniture storefront brand. */
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Group search, theme toggle, and nav on one flexible row. */
+.header-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Search form keeps the input and submit button aligned side by side. */
+.search-wrap {
+  display: flex;
+  gap: 8px;
+}
+
+/* Rounded search field matches the pill-based button language used across the page. */
+.search-wrap input {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  min-width: 220px;
+  outline: none;
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Highlight the search field when the user focuses it. */
+.search-wrap input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* Shared button base for links and interactive controls. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Primary action color for key calls-to-action. */
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+/* Secondary action style for less prominent actions. */
+.btn-secondary {
+  background: var(--secondary-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Horizontal nav adapts cleanly as the header wraps on smaller screens. */
+.site-nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Navigation links inherit the current theme colors. */
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Count badges make cart and wishlist totals easy to spot. */
+.nav-link span {
+  display: inline-flex;
+  margin-left: 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* Hero section introduces the brand with copy on the left and imagery on the right. */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: center;
+  padding: 56px 24px 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Limit the text column for easier reading. */
+.hero-copy {
+  max-width: 520px;
+}
+
+/* Small uppercase label above the main hero heading. */
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* Responsive headline scales smoothly across viewport sizes. */
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  line-height: 1.02;
+}
+
+/* Softer paragraph color separates support copy from headings. */
+.hero p {
+  margin: 18px 0 28px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* Large hero image adds visual weight to the intro section. */
+.hero-image img {
+  width: 100%;
+  border-radius: 28px;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.12);
+}
+
+/* Shared wrapper for the primary catalog section. */
+.products-section {
+  padding: 24px;
+  max-width: 1180px;
+  margin: 0 auto 48px;
+}
+
+/* Section headings keep product groups visually separated. */
+.section-title {
+  margin-bottom: 24px;
+}
+
+/* Larger heading size for major page sections. */
+.section-title h2 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+}
+
+/* Responsive card grid automatically fits as many product cards as possible per row. */
+.product-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Product cards act as self-contained visual units for each furniture item. */
+.product-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Product images fill the top of the card while preserving aspect ratio. */
+.product-card img {
+  width: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Card body stacks title, rating, pricing, and action buttons vertically. */
+.product-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Product names stay compact even when titles are long. */
+.product-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Muted metadata copy for product rating and supporting text. */
+.product-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Price block and action buttons share one row inside the card footer. */
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Stack current and original prices vertically for comparison. */
+.price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Current price receives stronger emphasis. */
+.product-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Original price is styled as crossed-out reference pricing. */
+.product-old-price {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 0.95rem;
+}
+
+/* Badges highlight promos such as special buys or bestseller status. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  background: #e0f2fe;
+  color: #0369a1;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Product action buttons wrap instead of breaking the card layout. */
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Buttons inside cards expand to share available width. */
+.product-card button {
+  flex: 1;
+  min-width: 120px;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+/* Cart button uses the main accent color to encourage purchase actions. */
+.btn-cart {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* Wishlist button stays visually lighter than the cart action. */
+.btn-wishlist {
+  background: #f8fafc;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Toast sits above the page content to deliver quick feedback messages. */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  padding: 14px 18px;
+  border-radius: 999px;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.25);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Only visible toasts should fade in. */
+.toast.visible {
+  opacity: 1;
+}
+
+/* Utility class used to remove elements from layout when needed. */
+.hidden {
+  display: none;
+}
+
+/* Center the pagination control below the product grid. */
+.pagination {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Pagination shell groups the controls into a compact card. */
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+/* Pagination buttons match the page theme and react on hover. */
+.pagination-btn {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Use the primary accent to indicate hoverable page movement. */
+.pagination-btn:hover:not(:disabled) {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: var(--primary);
+}
+
+/* Dim disabled buttons to show there is no more navigation in that direction. */
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* The current page label stays centered between previous and next buttons. */
+.page-info {
+  font-weight: 600;
+  color: var(--text);
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Theme toggle is intentionally minimal so the icon remains the focal point. */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Small hover scale adds affordance without changing layout. */
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Carousel sections create additional product discovery below the main grid. */
+.carousel-section {
+  padding: 40px 24px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Carousel container aligns arrows with the scrolling track. */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* Wrapper clips off-screen carousel cards. */
+.carousel-wrapper {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Track uses flex layout to keep all carousel items on one horizontal line. */
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.4s ease;
+  scroll-behavior: smooth;
+}
+
+/* Each carousel card shows a compact version of a product. */
+.carousel-item {
+  flex: 0 0 calc(25% - 12px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Lift the card slightly to signal interactivity. */
+.carousel-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* Fixed-height images keep carousel cards visually aligned. */
+.carousel-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Stack carousel text and actions in a compact vertical layout. */
+.carousel-item-content {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Titles are slightly smaller than the main grid to fit narrow cards. */
+.carousel-item-content h4 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+/* Supporting rating line stays visually secondary. */
+.carousel-item-content p {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* Price remains one of the most prominent pieces of carousel information. */
+.carousel-item-price {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Carousel buttons wrap neatly if available width is tight. */
+.carousel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+/* Shared styling for action buttons inside carousel cards. */
+.carousel-action {
+  flex: 1 1 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+/* Subtle lift mirrors the interaction style used elsewhere on the page. */
+.carousel-action:hover {
+  transform: translateY(-2px);
+}
+
+/* Carousel cart button uses a quieter style than the hero and checkout actions. */
+.carousel-action.btn-cart {
+  background: var(--secondary-bg);
+  color: var(--text);
+}
+
+/* Wishlist stays transparent to keep the primary buy-now action dominant. */
+.carousel-action.btn-wishlist {
+  background: transparent;
+  color: var(--text);
+}
+
+/* Primary carousel action emphasizes fast conversion from the rail. */
+.carousel-action.btn-primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: transparent;
+}
+
+/* Arrow buttons move the current carousel window backward or forward. */
+.carousel-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+/* Hover state reinforces that the arrows are actionable controls. */
+.carousel-btn:hover {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: var(--primary);
+}
+
+/* Disabled arrows indicate that the carousel cannot move further. */
+.carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+@media (max-width: 860px) {
+  /* Stack hero content vertically on medium screens. */
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  /* Show fewer carousel items per row as the screen narrows. */
+  .carousel-item {
+    flex: 0 0 calc(33.333% - 11px);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Allow the header controls to stack for small-screen readability. */
+  .site-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Space header controls more naturally once they wrap. */
+  .header-actions {
+    justify-content: space-between;
+  }
+
+  /* Expand search to full width on phones. */
+  .search-wrap {
+    width: 100%;
+  }
+
+  .search-wrap input {
+    width: 100%;
+  }
+
+  /* Reduce carousel density again for narrow devices. */
+  .carousel-item {
+    flex: 0 0 calc(50% - 8px);
+  }
+
+  /* Tighten carousel spacing to fit the smaller viewport. */
+  .carousel-container {
+    gap: 8px;
+  }
+
+  .carousel-track {
+    gap: 8px;
+  }
+}

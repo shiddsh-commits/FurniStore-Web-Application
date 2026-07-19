@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy Now - Furniture Shop</title>
+    <!-- Checkout page-specific styles. -->
+    <link rel="stylesheet" href="BuyNow.css" />
+  </head>
+  <body>
+    <!-- Shared header keeps navigation and counts visible during checkout decisions. -->
+    <header class="site-header">
+      <div class="brand">Furniture Shop</div>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+        <nav class="site-nav">
+          <a href="../LandingPage/index.html" class="nav-link">Home</a>
+          <a href="../AddToCart/AddToCart.html" class="nav-link">Cart <span id="cart-count">0</span></a>
+          <a href="../Wishlist/Wishlist.html" class="nav-link">Wishlist <span id="wishlist-count">0</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main panel where JavaScript renders either a product checkout or a cart checkout summary. -->
+    <main class="buy-now-main">
+      <section class="buy-now-card" id="buy-now-card"></section>
+      <!-- Secondary panel reserved for supporting messaging or future upsells. -->
+      <section class="recommendation-panel">
+        <h2>Recommended for you</h2>
+        <p>Pick another piece or continue to checkout.</p>
+      </section>
+    </main>
+
+    <!-- Toast provides quick feedback when adding the current product to other lists. -->
+    <div id="toast" class="toast hidden"></div>
+    <!-- Buy-now script reads the saved checkout payload and builds the matching UI. -->
+    <script src="BuyNow.js"></script>
+  </body>
+</html>

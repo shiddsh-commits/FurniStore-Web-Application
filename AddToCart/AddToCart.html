@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - Furniture Shop</title>
+    <!-- Cart page-specific styles. -->
+    <link rel="stylesheet" href="AddToCart.css" />
+  </head>
+  <body>
+    <!-- Compact header for returning to the catalog and switching themes. -->
+    <header class="page-header">
+      <div class="header-top">
+        <a href="../LandingPage/index.html" class="back-link">← Back to shop</a>
+        <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+          🌙
+        </button>
+      </div>
+      <h1>Your Cart</h1>
+    </header>
+
+    <!-- Main cart layout: summary text, actions, and the list of saved products. -->
+    <main class="cart-page">
+      <div class="cart-top">
+        <p id="cart-summary">Loading cart items…</p>
+        <div class="cart-actions">
+          <button id="checkout-cart" class="btn btn-primary">Buy Now</button>
+          <button id="clear-cart" class="btn btn-secondary">Clear cart</button>
+        </div>
+      </div>
+      <div id="cart-list" class="cart-list"></div>
+    </main>
+
+    <!-- Cart script reads browser storage and renders current cart contents. -->
+    <script src="AddToCart.js"></script>
+  </body>
+</html>

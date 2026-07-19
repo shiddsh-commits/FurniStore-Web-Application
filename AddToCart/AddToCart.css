@@ -1,0 +1,236 @@
+/* Theme variables for the cart page in light mode. */
+:root {
+  background: #f8fafc;
+  color: #111827;
+  --surface: #ffffff;
+  --border: #d1d5db;
+  --primary: #2563eb;
+  --secondary-bg: #f3f4f6;
+  --bg: #f8fafc;
+  --text: #111827;
+  --muted: #6b7280;
+}
+
+/* Dark mode color overrides shared by the cart page. */
+html[data-theme="dark"] {
+  --bg: #2d2d2d;
+  --surface: #3d3d3d;
+  --text: #e8e8e8;
+  --muted: #b0b0b0;
+  --border: #555555;
+  --primary: #3b82f6;
+  --secondary-bg: #4a4a4a;
+}
+
+/* Predictable sizing for all cart page elements. */
+* {
+  box-sizing: border-box;
+}
+
+/* Set the cart page base font, colors, and minimum height. */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Header groups navigation back to the shop with the page title. */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Top row holds the back link and theme button. */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Icon-style theme toggle with a small hover animation. */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Slight scale increase makes the theme control feel interactive. */
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Back link uses the primary accent so it stands out from body copy. */
+.back-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Remove default margin from the main page heading. */
+h1 {
+  margin: 0;
+}
+
+/* Main wrapper limits line length and centers the cart content. */
+.cart-page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Summary and action buttons share one responsive header row. */
+.cart-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Allow cart action buttons to wrap without breaking the layout. */
+.cart-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Cart items are stacked vertically with consistent spacing. */
+.cart-list {
+  display: grid;
+  gap: 18px;
+}
+
+/* Each cart row uses a three-column layout for image, details, and actions. */
+.cart-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+/* Product thumbnails stay tidy and visually consistent. */
+.cart-item img {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  min-height: 100px;
+}
+
+/* Product name styling inside the cart row. */
+.item-info h2 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+/* Secondary line for the product price. */
+.item-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Optional price-emphasis helper used when stronger pricing is needed. */
+.item-price {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+/* Shared styling for secondary actions such as clear or remove. */
+.remove-button,
+.btn-secondary {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 12px 18px;
+  cursor: pointer;
+  background: var(--secondary-bg);
+  color: var(--text);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* Hover state lifts these actions and applies the accent color. */
+.remove-button:hover,
+.btn-secondary:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Pressed state removes the lift animation. */
+.remove-button:active,
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Focus state improves keyboard visibility. */
+.remove-button:focus,
+.btn-secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Empty state explains what the user should do next when the cart has no items. */
+.empty-state {
+  padding: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Keep inherited text colors explicit inside item info sections. */
+.item-info {
+  color: var(--text);
+}
+
+/* Action buttons stack vertically to the side of each cart item. */
+.item-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Shared button base for cart page actions. */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Primary cart action for buying items now. */
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+  border-color: transparent;
+}
+
+/* Darken the primary button slightly on hover. */
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+@media (max-width: 720px) {
+  /* Stack cart item content vertically on smaller screens. */
+  .cart-item {
+    grid-template-columns: 1fr;
+  }
+}

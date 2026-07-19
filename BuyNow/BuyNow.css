@@ -1,0 +1,300 @@
+/* Theme variables for the buy-now page in light mode. */
+:root {
+  color-scheme: light;
+  --bg: #f7f7fb;
+  --surface: #ffffff;
+  --surface-muted: #f3f4f6;
+  --text: #111827;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-contrast: #ffffff;
+  --shadow: rgba(15, 23, 42, 0.08);
+}
+
+/* Dark mode overrides for checkout styling. */
+html[data-theme="dark"] {
+  --bg: #2d2d2d;
+  --surface: #3d3d3d;
+  --surface-muted: #4a4a4a;
+  --text: #e8e8e8;
+  --muted: #b0b0b0;
+  --border: #555555;
+  --primary: #3b82f6;
+  --primary-contrast: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Keep measurements predictable across the checkout layout. */
+* {
+  box-sizing: border-box;
+}
+
+/* Base page font, background, and text color. */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Sticky checkout header mirrors the homepage structure. */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Brand label for the furniture storefront. */
+.brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Header actions group theme control with navigation links. */
+.header-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Theme toggle stays lightweight so the icon remains prominent. */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px 12px;
+}
+
+/* Nav stays horizontal and wraps if needed. */
+.site-nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Links inherit theme-aware text colors. */
+.nav-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Small badges surface cart and wishlist counts directly in the header. */
+.nav-link span {
+  display: inline-flex;
+  margin-left: 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* Main wrapper keeps checkout content centered with generous spacing. */
+.buy-now-main {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 0 24px 40px;
+}
+
+/* Primary checkout card can switch between image-plus-details and summary-only layouts. */
+.buy-now-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px var(--shadow);
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+}
+
+/* Two-column layout for single-product checkout. */
+.buy-now-card.has-image {
+  grid-template-columns: 420px 1fr;
+}
+
+/* Single-column layout for cart summary or empty states. */
+.buy-now-card.no-image {
+  grid-template-columns: 1fr;
+}
+
+/* Product image styling for the main checkout card. */
+.buy-now-card img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  min-height: 320px;
+}
+
+/* Text and action column inside the buy-now card. */
+.buy-now-details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Large heading for the selected product or checkout state. */
+.buy-now-details h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Muted support copy for product and checkout descriptions. */
+.buy-now-details p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* Price block aligns current and old price styles. */
+.buy-now-price {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Main checkout price gets the strongest emphasis. */
+.buy-now-price strong {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+/* Cart-wide checkout shows a stacked summary of every item being purchased. */
+.buy-now-cart-items {
+  display: grid;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+/* Compact card for each cart item inside the bulk checkout summary. */
+.buy-now-item {
+  display: grid;
+  grid-template-columns: 0.75fr 1fr;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  background: var(--surface-muted);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+/* Match item thumbnails to the soft-card look of the rest of the page. */
+.buy-now-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Item heading inside the bulk checkout list. */
+.buy-now-item h2 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+
+/* Price line inside each bulk checkout list item. */
+.buy-now-item p {
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Old price is shown as muted crossed-out comparison pricing. */
+.old-price {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 1rem;
+}
+
+/* Action buttons wrap rather than overflow on narrower screens. */
+.buy-now-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Shared checkout button base. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 22px;
+  cursor: pointer;
+}
+
+/* Primary action used for proceeding to checkout. */
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-contrast);
+}
+
+/* Secondary buttons support add-to-cart and add-to-wishlist flows. */
+.btn-secondary {
+  background: var(--secondary-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* Supporting recommendation box leaves room for future upsells or suggestions. */
+.recommendation-panel {
+  margin-top: 28px;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+/* Section heading spacing inside the recommendation box. */
+.recommendation-panel h2 {
+  margin: 0 0 12px;
+}
+
+/* Muted supporting copy inside the recommendation area. */
+.recommendation-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Toast follows the same floating-feedback pattern used on other pages. */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.92);
+  color: #f8fafc;
+  padding: 14px 18px;
+  border-radius: 999px;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.25);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Only visible toasts should fade into view. */
+.toast.visible {
+  opacity: 1;
+}
+
+/* Utility class to remove hidden UI from layout. */
+.hidden {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  /* Collapse the buy-now card to one column on smaller screens. */
+  .buy-now-card {
+    grid-template-columns: 1fr;
+  }
+}
